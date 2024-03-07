@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/greek',
+    path: '/',
     name: 'greek',
     component: () => import(`@/views/GreekView.vue`)
   },
@@ -17,7 +17,7 @@ const routes = [
     component: () => import(`@/views/RegisterView.vue`)
   },
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: () => import(`@/views/HomeView.vue`)
   },

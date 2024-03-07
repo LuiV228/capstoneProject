@@ -1,7 +1,10 @@
 <template>
+  <body background="https://i.ibb.co/JdTR3Cw/The-Underworld-Logo.png">
     <div class="greek">
-        <h1 class="display-2">This is the greek page</h1>
+    
     </div>
+    
+  </body>
 </template>
 
 <script>
