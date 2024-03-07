@@ -1,16 +1,11 @@
 <template>
-    <div class="card">
-
-    </div>
+  <div class="card"></div>
 </template>
 
 <script>
-  export default {
-    name: 'CardComp'
-      
-  }
+export default {
+  name: "CardComp",
+};
 </script>
 
-<style scoped>
-    
-</style>
+<style scoped></style>

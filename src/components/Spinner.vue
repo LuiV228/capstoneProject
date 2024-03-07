@@ -18,7 +18,10 @@ export default {
         "Injecting virus...",
         "Overloading firewall...",
         "Extracting sensitive data...",
-        "Mission accomplished. Data acquired.",
+        "Data acquired.",
+        "Extracting virus...",
+        "Rebuilding firewall...",
+        "Access granted.",
         "Loading.",
         "Loading..",
         "Loading...",
@@ -44,7 +47,7 @@ export default {
             this.showSpinner = false;
           },
           // Adjust timeout according to your animation speed
-          3000
+          2000
         );
         return;
       }
@@ -76,5 +79,25 @@ export default {
   font-size: 31px;
   color: #18c8e3;
   white-space: pre;
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .spinner {
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    color: #18c8e3;
+    white-space: pre;
+  }
 }
 </style>

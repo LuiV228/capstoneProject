@@ -24,27 +24,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <div class="nav-item">
+          <div class="nav-item px-3">
             <router-link to="/" class="nav-link">Home</router-link>
           </div>
-          <div class="nav-item">
+          <div class="nav-item px-3">
             <router-link to="/services" class="nav-link">Services</router-link>
           </div>
-          <div class="nav-item">
+          <div class="nav-item px-3">
             <router-link to="/agents" class="nav-link">Agents</router-link>
           </div>
-          <div class="nav-item">
-            <router-link to="/emissaries" class="nav-link"
-              >Emissaries</router-link
-            >
+          <div class="nav-item px-3">
+            <router-link to="/emissaries" class="nav-link">Emissaries</router-link>
           </div>
-          <div class="nav-item">
+          <div class="nav-item px-3">
             <router-link to="/contact" class="nav-link">Contact</router-link>
           </div>
-          <div class="nav-item">
+          <div class="nav-item px-3">
             <router-link to="/admin" class="nav-link">Admin</router-link>
           </div>
-          <div class="nav-item">
+          <div class="nav-item px-3">
             <router-link to="/logout" class="nav-link">Log Out</router-link>
           </div>
         </div>
@@ -60,7 +58,7 @@
 }
 
 nav {
-  padding: 30px;
+  padding: 15px;
 }
 
 nav a.nav-link:hover {
