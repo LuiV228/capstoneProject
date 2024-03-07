@@ -1,7 +1,15 @@
 <template>
   <nav>
+    <router-link to="/greek">Greek</router-link> |
+    <router-link to="/login">Login</router-link> |
+    <router-link to="/register">Register</router-link> |
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/services">Services</router-link> |
+    <router-link to="/agents">Agents</router-link> |
+    <router-link to="/agent">Agent</router-link> |
+    <router-link to="/emissaries">Emissaries</router-link> |
+    <router-link to="/contact">Contact</router-link> |
+    <router-link to="/admin">Admin</router-link> 
   </nav>
   <router-view/>
 </template>
