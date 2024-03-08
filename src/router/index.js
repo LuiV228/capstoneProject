@@ -4,7 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'greek',
-    component: () => import(`@/views/GreekView.vue`)
+    component: () => import(`../views/GreekView.vue`),
   },
   {
     path: '/login',

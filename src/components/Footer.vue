@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid fixed-bottom m" id="footer">
+  <div class="container-fluid" id="footer">
     <div class="row">
       <p class="lead">
         The Underworld &copy; <span>{{ currYear }}</span>
