@@ -1,6 +1,6 @@
 <template>
-  <div v-if="showSpinner" class="spinner-container">
-    <div class="spinner">
+  <div class="spinner-container">
+    <div class="spinner vh-50">
       <pre id="code">{{ code }}</pre>
     </div>
   </div>
@@ -32,7 +32,7 @@ export default {
       ],
       currentLine: 0,
       code: "",
-      showSpinner: false
+      showSpinner: false,
     };
   },
   mounted() {

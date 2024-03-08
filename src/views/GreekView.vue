@@ -10,16 +10,12 @@
       />
       <button @click="checkAnswer()">Check Response</button>
     </div>
-    <Spinner />
   </main>
 </template>
 
 <script>
-import Spinner from "@/components/Spinner.vue";
 export default {
-  components: {
-    Spinner,
-  },
+  components: {},
   data() {
     return {
       question: "",
@@ -41,7 +37,10 @@ export default {
     },
     checkAnswer() {
       if (this.answer === this.correctAnswer) {
-        this.$router.push("/home");
+        this.$router.push("/spinner");
+        setTimeout(() => {
+          this.$router.push("/home");
+        }, 17000);
       } else {
         alert("Try a better phrase.");
       }

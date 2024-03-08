@@ -1,9 +1,13 @@
 <template>
-  <NavBar v-if="!['/', '/login', '/register'].includes(this.$route.path)" />
+  <NavBar
+    v-if="!['/', '/login', '/register', '/spinner'].includes(this.$route.path)"
+  />
   <main>
     <router-view />
   </main>
-  <Footer v-if="!['/', '/login', '/register'].includes(this.$route.path)" />
+  <Footer
+    v-if="!['/', '/login', '/register', '/spinner'].includes(this.$route.path)"
+  />
 </template>
 
 <script>
@@ -13,11 +17,6 @@ export default {
   components: {
     NavBar,
     Footer,
-  },
-  methods: {
-    route() {
-      console.log(this.$route.path);
-    },
   },
 };
 </script>
