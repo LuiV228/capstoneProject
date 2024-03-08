@@ -32,7 +32,7 @@ export default {
       ],
       currentLine: 0,
       code: "",
-      showSpinner: true,
+      showSpinner: false
     };
   },
   mounted() {

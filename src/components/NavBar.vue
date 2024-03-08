@@ -4,7 +4,7 @@
     data-bs-theme="dark"
   >
     <div class="container-fluid">
-      <router-link to="/">
+      <router-link to="/home">
         <img
           src="https://i.ibb.co/JdTR3Cw/The-Underworld-Logo.png"
           alt="logo"
@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <div class="nav-item px-3">
-            <router-link to="/" class="nav-link">Home</router-link>
+            <router-link to="/home" class="nav-link">Home</router-link>
           </div>
           <div class="nav-item px-3">
             <router-link to="/services" class="nav-link">Services</router-link>
