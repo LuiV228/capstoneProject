@@ -1,5 +1,5 @@
 <template>
-  <main class="greek">
+  <main class="dummy">
     <div class="container-fluid bg-white questionBG">
       <h1 class="container-fluid question">{{ question }}</h1>
       <input
@@ -39,7 +39,7 @@ export default {
       if (this.answer === this.correctAnswer) {
         this.$router.push("/dummyspinner");
         setTimeout(() => {
-          this.$router.push("/home");
+          this.$router.push("/login");
         }, 17000);
       } else {
         alert("Try a better phrase.");
@@ -50,8 +50,8 @@ export default {
 </script>
 
 <style scoped>
-.greek {
-  background-image: url("https://i.ibb.co/7pRG1qz/Greek.jpg");
+.dummy {
+  background-image: url("https://i.ibb.co/7pRG1qz/dummy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -66,7 +66,7 @@ export default {
 }
 
 @media screen and (min-width: 300px) and (max-width: 500px) {
-  .greek {
+  .dummy {
     padding-top: 70%;
   }
   .questionBG {
