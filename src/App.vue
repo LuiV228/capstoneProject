@@ -1,12 +1,12 @@
 <template>
   <NavBar
-    v-if="!['/', '/login', '/register', '/spinner'].includes(this.$route.path)"
+    v-if="!['/', '/login', '/register', '/dummyspinner'].includes(this.$route.path)"
   />
   <main>
     <router-view />
   </main>
   <Footer
-    v-if="!['/', '/login', '/register', '/spinner'].includes(this.$route.path)"
+    v-if="!['/', '/login', '/register', '/dummyspinner'].includes(this.$route.path)"
   />
 </template>
 

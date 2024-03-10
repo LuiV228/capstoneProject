@@ -2,9 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/spinner',
-    name: 'spinner',
-    component: () => import(`../components/Spinner.vue`),
+    path: '/dummyspinner',
+    name: 'greekspinner',
+    component: () => import(`../views/SpinnerView.vue`),
   },
   {
     path: '/',

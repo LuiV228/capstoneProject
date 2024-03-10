@@ -37,7 +37,7 @@ export default {
     },
     checkAnswer() {
       if (this.answer === this.correctAnswer) {
-        this.$router.push("/spinner");
+        this.$router.push("/dummyspinner");
         setTimeout(() => {
           this.$router.push("/home");
         }, 17000);
