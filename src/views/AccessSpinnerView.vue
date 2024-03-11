@@ -27,8 +27,8 @@ export default {
       }
     }, 20);
     setTimeout(() => {
-      this.$router.push({ name: 'Home' }); // Navigate to home page
-    }, 20000); // 20000 milliseconds = 20 seconds
+      this.$router.push({ name: "home" }); // Navigate to home page
+    }, 39300); // 52000 milliseconds = 52 seconds
   },
 };
 
@@ -105,7 +105,16 @@ S1293 K // P 430
 .....
 ...
 ....
-...`;
+...
+...
+...
+..
+...
+.
+
+
+
+Welcome`;
 </script>
 
 <style scoped>
@@ -118,7 +127,7 @@ body {
 
 .access-spinner {
   background: #000;
-  height: 100%;
+  height: 100vh;
 }
 
 .access-spinner__text {
@@ -130,11 +139,13 @@ body {
   padding: 2rem;
   position: absolute;
   right: 0;
+  text-align: left;
+  color: #18c8e3;
 }
 
 .access-spinner__character {
   animation: type 500ms linear;
-  color: #00a000;
+  color: #18c8e3;
 }
 
 @keyframes type {
@@ -150,7 +161,7 @@ body {
 
   100% {
     background: transparent;
-    color: #00a000;
+    color: #18c8e3;
   }
 }
 </style>

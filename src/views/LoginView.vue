@@ -23,7 +23,7 @@
           Register
         </router-link>
         <br />
-        <router-link to="/accessSpinner" @click="redirectToAccessSpinner">
+        <router-link to="/accessSpinner">
           <span></span>
           <span></span>
           <span></span>
@@ -37,11 +37,6 @@
 
 <script>
 export default {
-  methods: {
-    redirectToAccessSpinner() {
-      this.$router.push({ name: 'accessSpinner' }); // Navigate to AccessSpinner page
-    }
-  }
 };
 </script>
 

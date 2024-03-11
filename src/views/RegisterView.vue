@@ -27,7 +27,7 @@
           <input type="password" name="" required="" />
           <label>Access Code</label>
         </div>
-        <router-link @click="redirectToAccessSpinner">
+        <router-link to="/accessSpinner">
           <span></span>
           <span></span>
           <span></span>
@@ -41,11 +41,6 @@
 
 <script>
 export default {
-  methods: {
-    redirectToAccessSpinner() {
-      this.$router.push({ name: 'accessSpinner' }); // Navigate to AccessSpinner page
-    }
-  }
 };
 </script>
 
@@ -93,6 +88,7 @@ export default {
   outline: none;
   background: transparent;
 }
+
 .login-box .user-box label {
   position: absolute;
   top: 0;
