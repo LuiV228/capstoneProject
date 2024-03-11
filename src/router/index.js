@@ -3,13 +3,18 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/dummyspinner',
-    name: 'greekspinner',
-    component: () => import(`../views/SpinnerView.vue`),
+    name: 'dummyspinner',
+    component: () => import(`../views/DummySpinnerView.vue`),
+  },
+  {
+    path: '/accessSpinner',
+    name: 'accessSpinner',
+    component: () => import(`../views/AccessSpinnerView.vue`),
   },
   {
     path: '/',
-    name: 'greek',
-    component: () => import(`../views/GreekView.vue`),
+    name: 'dummy',
+    component: () => import(`../views/DummyView.vue`),
   },
   {
     path: '/login',
@@ -19,7 +24,7 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    component: () => import(`@/views/RegisterView.vue`)
+    component: () => import(`../views/RegisterView.vue`)
   },
   {
     path: '/home',
