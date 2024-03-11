@@ -1,17 +1,18 @@
 <template>
   <div class="agent">
     <h1 class="display-2">This is the agent page</h1>
-    <div class="row row-cols-1 row-cols-md-5 g-4 m-1 justify-content-center">
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
       <div v-for="agent in $store.state.agent" :key="agent.agentID">
         <div class="col">
-          <div class="card">
+          <div class="card m-3">
             <img :src="agent.agentPortfolio" class="card-img-top" />
-            <div class="card-body">
+            <div class="card-body container-fluid justify-content-center">
               <h5 class="card-title">Codename: {{ agent.agentCodeName }}</h5>
               <h5 class="card-title">Role: {{ agent.agentRole }}</h5>
               <p class="card-text">
                 Role Description: {{ agent.agentRoleDescription }}
               </p>
+              <p class="card-text">Service Fee: R{{ agent.agentPrice }}</p>
               <div class="frame">
                 <button class="custom-btn btn-5">
                   <span>Hire Emissary</span>
@@ -45,8 +46,7 @@ export default {
 }
 
 .frame {
-  width: 90%;
-  margin-left: 10px;
+  width: 100%;
   text-align: center;
 }
 .custom-btn {
@@ -103,5 +103,9 @@ export default {
 .btn-5:hover:after {
   width: 100%;
   transition: 800ms ease all;
+}
+
+.card {
+  padding-bottom: 10px;
 }
 </style>

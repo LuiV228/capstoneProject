@@ -7,10 +7,10 @@
   </header>
   <div class="agents">
     <h1 class="display-2">This is the agents page</h1>
-    <div class="row row-cols-1 row-cols-md-5 g-4 m-1">
+    <div class="row row-cols-1 row-cols-md-5 g-4">
       <div v-for="agent in filteredAgents" :key="agent">
         <div class="col">
-          <div class="card">
+          <div class="card mx-1 my-3">
             <img :src="agent.agentPortfolio" class="card-img-top" />
             <div class="card-body">
               <h5 class="card-title">Codename: {{ agent.agentCodeName }}</h5>
@@ -19,7 +19,10 @@
                 Role Description: {{ agent.agentRoleDescription }}
               </p>
               <div class="frame">
-                <router-link @click="getAgent(agent.agentID)" :to="{ name: 'agent', params: { agentID: agent.agentID }}">
+                <router-link
+                  @click="getAgent(agent.agentID)"
+                  :to="{ name: 'agent', params: { agentID: agent.agentID } }"
+                >
                   <button class="custom-btn btn-5">
                     <span>View Details</span>
                   </button>
@@ -38,8 +41,8 @@
 export default {
   methods: {
     getAgent(agentID) {
-      this.$store.dispatch("getAgent", agentID)
-    }
+      this.$store.dispatch("getAgent", agentID);
+    },
   },
   computed: {
     getAgents() {
@@ -62,8 +65,7 @@ export default {
 
 <style scoped>
 .frame {
-  width: 90%;
-  margin-left: 10px;
+  width: 100%;
   text-align: center;
 }
 .custom-btn {
