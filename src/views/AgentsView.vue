@@ -19,7 +19,7 @@
                 Role Description: {{ agent.agentRoleDescription }}
               </p>
               <div class="frame">
-                <router-link to="/agent">
+                <router-link @click="getAgent(agent.agentID)" :to="{ name: 'agent', params: { agentID: agent.agentID }}">
                   <button class="custom-btn btn-5">
                     <span>View Details</span>
                   </button>
@@ -36,6 +36,11 @@
 <script>
 /* eslint-disable */
 export default {
+  methods: {
+    getAgent(agentID) {
+      this.$store.dispatch("getAgent", agentID)
+    }
+  },
   computed: {
     getAgents() {
       return this.$store.dispatch("getAgents");
@@ -58,7 +63,7 @@ export default {
 <style scoped>
 .frame {
   width: 90%;
-  margin: 40px auto;
+  margin-left: 10px;
   text-align: center;
 }
 .custom-btn {

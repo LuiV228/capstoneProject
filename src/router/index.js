@@ -42,7 +42,7 @@ const routes = [
     component: () => import(`@/views/AgentsView.vue`)
   },
   {
-    path: '/agent',
+    path: '/agent/:agentID',
     name: 'agent',
     component: () => import(`@/views/AgentView.vue`)
   },
