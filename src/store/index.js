@@ -40,7 +40,16 @@ export default createStore({
     },
     setAddUser(state, data) {
       state.user = data;
-    }
+    },
+    setAddUserAdmin(state, data) {
+      state.user = data;
+    },
+    setDeleteUser(state, data) {
+      state.user = data;
+    },
+    setUpdateUser(state, data) {
+      state.user = data;
+    },
   },
   actions: {
     async getAgents({ commit }) {
@@ -97,6 +106,24 @@ export default createStore({
       commit("setAddUser", data.results);
       alert(data.msg)
       router.push({ name: "login" });
+    },
+    async addUserAdmin({commit}, newUserAdmin) {
+      console.log(newUserAdmin);
+      let { data } = await axios.post(BASE_URL + "users/addUser", newUserAdmin);
+      console.log(data);
+      commit("setAddUserAdmin", data.results);
+      // alert(data.msg)
+      window.location.reload()
+    },
+    async deleteUser({commit}, userID) {
+      await axios.delete(BASE_URL + "users/deleteUser/" + userID)
+      commit("setDeleteUser");
+      window.location.reload()
+    },
+    async updateUser({commit}, update) {
+      await axios.patch(BASE_URL + "users/updateUser/" + update.userID, update)
+      commit("setUpdateUser");
+      window.location.reload()
     },
   },
   modules: {},
