@@ -33,7 +33,7 @@ export default {
     // To generate my random question
     randomQuestion() {
       this.question =
-        "What is a good saying to warn colleagues you are going to hit somone?";
+        "What is a good saying to warn colleagues you are going to hit someone?";
     },
     checkAnswer() {
       if (this.answer === this.correctAnswer) {

@@ -4,36 +4,36 @@
       <h2>Welcome</h2>
       <form>
         <div class="user-box">
-          <input type="password" name="" required="" />
+          <input type="text" name="" required="" v-model="userFirstName"/>
           <label>First Name</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" required="" />
+          <input type="text" name="" required="" v-model="userLastName"/>
           <label>Last Name</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" required="" />
+          <input type="text" name="" required="" v-model="userRole"/>
+          <label>Role</label>
+        </div>
+        <div class="user-box">
+          <input type="number" name="" required="" v-model="userContact"/>
           <label>Contact</label>
         </div>
         <div class="user-box">
-          <input type="text" name="" required="" />
+          <input type="text" name="" required="" v-model="userEmail"/>
           <label>Email Address</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" required="" />
+          <input type="password" name="" required="" v-model="userPassword"/>
           <label>Password</label>
         </div>
-        <div class="user-box">
-          <input type="password" name="" required="" />
-          <label>Access Code</label>
-        </div>
-        <router-link to="/accessSpinner">
+        <a @click="addUser()">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Register
-        </router-link>
+        </a>
       </form>
     </div>
   </div>
@@ -41,6 +41,21 @@
 
 <script>
 export default {
+  data() {
+    return {
+      userFirstName: '',
+      userLastName: '',
+      userContact: '',
+      userRole: '',
+      userEmail: '',
+      userPassword: '',
+    };
+  },
+  methods: {
+    addUser() {
+      return this.$store.dispatch("addUser", this.$data);
+    },
+  },
 };
 </script>
 

@@ -4,16 +4,12 @@
       <h2>Welcome</h2>
       <form>
         <div class="user-box">
-          <input type="text" name="" required="" />
+          <input type="text" name="" required="" v-model="userEmail" />
           <label>Email Address</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" required="" />
+          <input type="password" name="" required="" v-model="userPassword" />
           <label>Password</label>
-        </div>
-        <div class="user-box">
-          <input type="password" name="" required="" />
-          <label>Access Code</label>
         </div>
         <router-link to="/register">
           <span></span>
@@ -23,13 +19,13 @@
           Register
         </router-link>
         <br />
-        <router-link to="/accessSpinner">
+        <a @click="login()">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Login
-        </router-link>
+        </a>
       </form>
     </div>
   </div>
@@ -37,6 +33,18 @@
 
 <script>
 export default {
+  data() {
+    return {
+      userEmail: [],
+      userPassword: [],
+    };
+  },
+  methods: {
+    login() {
+      console.log(this.$data);
+      return this.$store.dispatch("login", this.$data);
+    },
+  },
 };
 </script>
 
