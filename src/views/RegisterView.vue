@@ -2,38 +2,34 @@
   <div class="loginbg">
     <div class="login-box">
       <h2>Welcome</h2>
-      <form>
+      <form @submit.prevent="registerUser">
         <div class="user-box">
-          <input type="text" name="" required="" v-model="userFirstName"/>
+          <input type="text" name="" required="" v-model="userFirstName" />
           <label>First Name</label>
         </div>
         <div class="user-box">
-          <input type="text" name="" required="" v-model="userLastName"/>
+          <input type="text" name="" required="" v-model="userLastName" />
           <label>Last Name</label>
         </div>
         <div class="user-box">
-          <input type="text" name="" required="" v-model="userRole"/>
-          <label>Role</label>
-        </div>
-        <div class="user-box">
-          <input type="number" name="" required="" v-model="userContact"/>
+          <input type="text" name="" required="" v-model.number="userContact" />
           <label>Contact</label>
         </div>
         <div class="user-box">
-          <input type="text" name="" required="" v-model="userEmail"/>
+          <input type="text" name="" required="" v-model="userEmail" />
           <label>Email Address</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" required="" v-model="userPassword"/>
+          <input type="password" name="" required="" v-model="userPassword" />
           <label>Password</label>
         </div>
-        <a @click="addUser()">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Register
-        </a>
+        <router-link to="/login">
+        <button type="button">
+          Login
+        </button>
+        </router-link>
+        <br />
+        <button type="submit">Register</button>
       </form>
     </div>
   </div>
@@ -43,17 +39,29 @@
 export default {
   data() {
     return {
-      userFirstName: '',
-      userLastName: '',
-      userContact: '',
-      userRole: '',
-      userEmail: '',
-      userPassword: '',
+      userFirstName: "",
+      userLastName: "",
+      userContact: "",
+      userEmail: "",
+      userPassword: "",
     };
   },
   methods: {
-    addUser() {
-      return this.$store.dispatch("addUser", this.$data);
+    registerUser() {
+      if (this.validateForm()) {
+        this.$store.dispatch("addUser", this.$data);
+      } else {
+        alert("Please fill in all the fields.");
+      }
+    },
+    validateForm() {
+      return (
+        this.userFirstName.trim() !== "" &&
+        this.userLastName.trim() !== "" &&
+        String(this.userContact).trim() !== "" &&
+        this.userEmail.trim() !== "" &&
+        this.userPassword.trim() !== ""
+      );
     },
   },
 };
@@ -123,11 +131,11 @@ export default {
   font-size: 12px;
 }
 
-.login-box form a {
+.login-box form button {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #18c8e3;
+  color: #000000;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -137,7 +145,7 @@ export default {
   letter-spacing: 4px;
 }
 
-.login-box a:hover {
+.login-box button:hover {
   background: #18c8e3;
   color: #000000;
   border-radius: 5px;
@@ -145,17 +153,17 @@ export default {
     0 0 100px #18c8e3;
 }
 
-.login-box a span {
+.login-box button span {
   position: absolute;
   display: block;
 }
 
-.login-box a span:nth-child(1) {
+.login-box button span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #18c8e3);
+  background: linear-gradient(90deg, transparent, #000000);
   animation: btn-anim1 1s linear infinite;
 }
 
@@ -169,12 +177,12 @@ export default {
   }
 }
 
-.login-box a span:nth-child(2) {
+.login-box button span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #18c8e3);
+  background: linear-gradient(180deg, transparent, #000000);
   animation: btn-anim2 1s linear infinite;
   animation-delay: 0.25s;
 }
@@ -189,12 +197,12 @@ export default {
   }
 }
 
-.login-box a span:nth-child(3) {
+.login-box button span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, #18c8e3);
+  background: linear-gradient(270deg, transparent, #000000);
   animation: btn-anim3 1s linear infinite;
   animation-delay: 0.5s;
 }
@@ -209,12 +217,12 @@ export default {
   }
 }
 
-.login-box a span:nth-child(4) {
+.login-box button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #18c8e3);
+  background: linear-gradient(360deg, transparent, #000000);
   animation: btn-anim4 1s linear infinite;
   animation-delay: 0.75s;
 }

@@ -1,13 +1,8 @@
 <template>
-  <input type="text" placeholder="First Name" v-model="userFirstName" />
-  <input type="text" placeholder="Last Name" v-model="userLastName" />
-  <input type="text" placeholder="Role" v-model="userRole" />
-  <input type="text" placeholder="Email" v-model="userEmail" />
-  <input type="password" placeholder="Password" v-model="userPassword" />
-  <input type="text" placeholder="Contact" v-model="userContact" />
-  <div class="container-fluid">
-    <button class="add" @click="addUserAdmin()">Add User</button>
-  </div>
+  <AddUser />
+  <br />
+  <div class="container-fluid"></div>
+  <br />
   <table class="table table-bordered border-primary">
     <thead class="table-dark">
       <tr>
@@ -28,26 +23,16 @@
         <td class="col-4">{{ user.userEmail }}</td>
         <td class="col-5">{{ user.userContact }}</td>
         <td class="col-6">
-          <button  @click="deleteUser(user.userID)">Remove User</button>
+          <button @click="deleteUser(user.userID)">Remove User</button>
         </td>
-        <td class="col-7"><button @click="updateUser(user.userID)">Edit User</button></td>
+        <td class="col-7">
+          <button @click="updateUser(user.userID)">Edit User</button>
+        </td>
       </tr>
     </tbody>
   </table>
+  <AddAgent />
   <br />
-  <input type="number" placeholder="Agent Id" v-model="agentID" />
-  <input type="text" placeholder="Agent Portfolio" v-model="agentPortfolio" />
-  <input type="text" placeholder="Agent Codename" v-model="agentCodeName" />
-  <input type="text" placeholder="Agent Role" v-model="agentRole" />
-  <input
-    type="text"
-    placeholder="Agent Role Description"
-    v-model="agentRoleDescription"
-  />
-  <input type="number" placeholder="Agent Service Fee" v-model="agentPrice" />
-  <div class="container-fluid">
-    <button class="add" @click="addAgent()">Add Agent</button>
-  </div>
   <table class="table table-bordered border-primary">
     <thead class="table-dark">
       <tr>
@@ -81,7 +66,14 @@
 </template>
 
 <script>
+import AddUser from "../components/AddUser.vue";
+import AddAgent from "@/components/AddAgent.vue";
+
 export default {
+  components: {
+    AddUser,
+    AddAgent,
+  },
   data() {
     return {
       agentID: "",
@@ -108,8 +100,15 @@ export default {
   },
   methods: {
     addAgent() {
-      this.data = { agentID: this.agentID, agentPortfolio: this.agentPortfolio, agentCodeName: this.agentCodeName, agentRole: this.agentRole, agentRoleDescription: this.agentRoleDescription, agentPrice: this.agentPrice }
-      this.$store.dispatch('addAgent', this.data);
+      this.data = {
+        agentID: this.agentID,
+        agentPortfolio: this.agentPortfolio,
+        agentCodeName: this.agentCodeName,
+        agentRole: this.agentRole,
+        agentRoleDescription: this.agentRoleDescription,
+        agentPrice: this.agentPrice,
+      };
+      this.$store.dispatch("addAgent", this.data);
     },
     deleteAgent(agentID) {
       this.$store.dispatch("deleteAgent", agentID);
@@ -124,10 +123,6 @@ export default {
         agentPrice: this.agentPrice,
       };
       this.$store.dispatch("updateAgent", update);
-    },
-    addUserAdmin() {
-      this.data = { userFirstName: this.userFirstName, userLastName: this.userLastName, userContact: this.userContact, userRole: this.userRole, userEmail: this.userEmail, userPassword: this.userPassword }
-      this.$store.dispatch('addUserAdmin', this.data);
     },
     deleteUser(userID) {
       this.$store.dispatch("deleteUser", userID);

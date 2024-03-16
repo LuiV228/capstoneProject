@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg bg-black border-bottom border-body"
+    class="navbar navbar-expand-lg bg-black border-bottom border-body sticky-top"
     data-bs-theme="dark"
   >
     <div class="container-fluid">
@@ -34,7 +34,9 @@
             <router-link to="/agents" class="nav-link">Agents</router-link>
           </div>
           <div class="nav-item px-3">
-            <router-link to="/emissaries" class="nav-link">Emissaries</router-link>
+            <router-link to="/emissaries" class="nav-link"
+              >Emissaries</router-link
+            >
           </div>
           <div class="nav-item px-3">
             <router-link to="/contact" class="nav-link">Contact</router-link>

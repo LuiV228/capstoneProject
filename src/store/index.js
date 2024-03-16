@@ -23,9 +23,6 @@ export default createStore({
     setLogin(state, data) {
       state.loggedIn = data;
     },
-    setAddUser(state, data) {
-      state.user = data;
-    },
     setAdminAgents(state, data) {
       state.adminAgents = data;
     },
@@ -41,7 +38,7 @@ export default createStore({
     setUpdateAgent(state, data) {
       state.agent = data;
     },
-    setAddUserAdmin(state, data) {
+    setAddUser(state, data) {
       state.user = data;
     },
     setDeleteUser(state, data) {
@@ -54,74 +51,62 @@ export default createStore({
   actions: {
     async getAgents({ commit }) {
       let { data } = await axios.get(BASE_URL + "agents");
-      console.log(data.results);
       commit("setAgents", data.results);
     },
     async getAgent({ commit }, agentID) {
       let { data } = await axios.get(BASE_URL + "agents/" + agentID);
-      console.log(data.result);
       commit("setAgent", data.result);
     },
     async login({commit}, user) {
-      console.log(user);
       let { data } = await axios.post(BASE_URL + "users/login", user);
-      console.log(data);
       // eslint-disable-next-line
       $cookies.set('jwt', data.token)
       commit("setLogin", true);
       alert(data.msg)
       router.push({ name: "accessSpinner" });
     },
-    async addUser({commit}, newUser) {
-      console.log(newUser);
-      let { data } = await axios.post(BASE_URL + "users/addUser", newUser);
-      console.log(data);
-      commit("setAddUser", data.results);
-      alert(data.msg)
-      router.push({ name: "login" });
-    },
     async getAdminAgents({ commit }) {
       let { data } = await axios.get(BASE_URL + "agents");
-      console.log(data.results);
       commit("setAdminAgents", data.results);
     },
     async getAdminUsers({ commit }) {
       let { data } = await axios.get(BASE_URL + "users");
-      console.log(data.results);
       commit("setAdminUsers", data.results);
     },
     async addAgent({commit}, newAgent) {
-      console.log(newAgent);
       let { data } = await axios.post(BASE_URL + "agents/addAgent", newAgent);
-      console.log(data);
       commit("setAddAgent", data.results);
+      alert("Agent has been added successfully")
       window.location.reload()
     },
     async deleteAgent({commit}, agentID) {
       await axios.delete(BASE_URL + "agents/deleteAgent/" + agentID)
       commit("setDeleteAgent");
+      alert("Agent has been deleted successfully")
       window.location.reload()
     },
     async updateAgent({commit}, update) {
       await axios.patch(BASE_URL + "agents/updateAgent/" + update.agentID, update)
       commit("setUpdateAgent");
+      alert("Agent's details have been updated successfully")
       window.location.reload()
     },
-    async addUserAdmin({commit}, newUserAdmin) {
-      console.log(newUserAdmin);
-      let { data } = await axios.post(BASE_URL + "users/addUser", newUserAdmin);
-      console.log(data);
-      commit("setAddUserAdmin", data.results);
+    async addUser({commit}, newUser) {
+      let { data } = await axios.post(BASE_URL + "users/addUser", newUser);
+      commit("setAddUser", data.results);
+      alert("User has been added successfully")
       window.location.reload()
     },
     async deleteUser({commit}, userID) {
       await axios.delete(BASE_URL + "users/deleteUser/" + userID)
       commit("setDeleteUser");
+      alert("User has been deleted successfully")
       window.location.reload()
     },
     async updateUser({commit}, update) {
       await axios.patch(BASE_URL + "users/updateUser/" + update.userID, update)
       commit("setUpdateUser");
+      alert("User's details have been updated successfully")
       window.location.reload()
     },
   },

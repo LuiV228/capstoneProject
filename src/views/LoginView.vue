@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     login() {
-      console.log(this.$data);
       return this.$store.dispatch("login", this.$data);
     },
   },
