@@ -99,20 +99,20 @@ export default {
     };
   },
   computed: {
-    getAdminUsers() {
-      return this.$store.dispatch("getAdminUsers");
-    },
     getAdminAgents() {
       return this.$store.dispatch("getAdminAgents");
     },
+    getAdminUsers() {
+      return this.$store.dispatch("getAdminUsers");
+    },
   },
   methods: {
-    deleteAgent(agentID) {
-      this.$store.dispatch("deleteAgent", agentID);
-    },
     addAgent() {
       this.data = { agentID: this.agentID, agentPortfolio: this.agentPortfolio, agentCodeName: this.agentCodeName, agentRole: this.agentRole, agentRoleDescription: this.agentRoleDescription, agentPrice: this.agentPrice }
       this.$store.dispatch('addAgent', this.data);
+    },
+    deleteAgent(agentID) {
+      this.$store.dispatch("deleteAgent", agentID);
     },
     updateAgent(id) {
       let update = {
