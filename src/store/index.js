@@ -97,6 +97,12 @@ export default createStore({
       alert("User has been added successfully")
       window.location.reload()
     },
+    async addUserAdmin({commit}, newUserAdmin) {
+      let { data } = await axios.post(BASE_URL + "users/addUser", newUserAdmin);
+      commit("setAddUserAdmin", data.results);
+      alert("User has been added successfully")
+      window.location.reload()
+    },
     async deleteUser({commit}, userID) {
       await axios.delete(BASE_URL + "users/deleteUser/" + userID)
       commit("setDeleteUser");
