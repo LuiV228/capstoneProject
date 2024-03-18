@@ -5,5 +5,5 @@ let users = new Users()
 let agents = new Agents()
 export{
     users,
-    agents
+    agents,
 }

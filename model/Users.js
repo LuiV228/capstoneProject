@@ -64,7 +64,7 @@ class Users {
         res.json({
           status: res.statusCode,
           token,
-          msg: "You're registered!",
+          msg: "User has been registered!",
         });
       }
     });

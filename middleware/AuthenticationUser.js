@@ -8,10 +8,10 @@ function createToken(user) {
         userEmail: user.userEmail,
         userPassword: user.userPassword
     },
-    process.env.SECRET_KEY,)
+    process.env.SECRET_KEY,
     {
         expiresIn: '1h'
-    }
+    })
 }
 
 function verifyAToken(req, res, next) {
