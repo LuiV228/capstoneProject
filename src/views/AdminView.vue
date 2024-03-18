@@ -23,10 +23,10 @@
         <td class="col-4">{{ user.userEmail }}</td>
         <td class="col-5">{{ user.userContact }}</td>
         <td class="col-6">
-          <button @click="deleteUser(user.userID)">Remove User</button>
+          <button type="submit" class="btn btn-secondary" @click="deleteUser(user.userID)">Remove User</button>
         </td>
         <td class="col-7">
-          <button @click="updateUser(user.userID)">Edit User</button>
+          <UpdateUser :user="userID" />
         </td>
       </tr>
     </tbody>
@@ -68,11 +68,13 @@
 <script>
 import AddUser from "../components/AddUser.vue";
 import AddAgent from "@/components/AddAgent.vue";
+import UpdateUser from "@/components/UpdateUser.vue";
 
 export default {
   components: {
     AddUser,
     AddAgent,
+    UpdateUser
   },
   data() {
     return {
@@ -88,6 +90,7 @@ export default {
       userRole: "",
       userEmail: "",
       userPassword: "",
+      selectedUserID: null // Initialize selectedUserID with a default value or fetch it from your state
     };
   },
   computed: {
