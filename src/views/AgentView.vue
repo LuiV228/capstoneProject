@@ -2,7 +2,7 @@
   <div class="agent">
     <h1 class="display-2">This is the agent page</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-      <div v-for="agent in $store.state.agent" :key="agent.agentID">
+      <div v-if="agent">
         <div class="col">
           <div class="card m-3">
             <img :src="agent.agentPortfolio" class="card-img-top" />
@@ -14,7 +14,7 @@
               </p>
               <p class="card-text">Service Fee: R{{ agent.agentPrice }}</p>
               <div class="frame">
-                <button class="custom-btn btn-5">
+                <button class="custom-btn btn-5" @click="hireAgent(agent)">
                   <span>Hire Emissary</span>
                 </button>
               </div>
@@ -29,12 +29,17 @@
 <script>
 export default {
   computed: {
-    getAgent() {
-      return this.$store.dispatch("getAgent", this.$route.params.agentID);
+    agent() {
+      return this.$store.state.agent;
     },
   },
+  methods: {
+    hireAgent(agent) {
+      this.$store.commit('addEmissaryToCart', agent);
+    }
+  },
   mounted() {
-    this.getAgent;
+    this.$store.dispatch("getAgent", this.$route.params);
   },
 };
 </script>

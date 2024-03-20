@@ -19,7 +19,7 @@
           Register
         </router-link>
         <br />
-        <a @click="login()">
+        <a @click.prevent="signIn()">
           <span></span>
           <span></span>
           <span></span>
@@ -35,12 +35,12 @@
 export default {
   data() {
     return {
-      userEmail: [],
-      userPassword: [],
+      userEmail: null,
+      userPassword: null,
     };
   },
   methods: {
-    login() {
+    signIn() {
       return this.$store.dispatch("login", this.$data);
     },
   },
