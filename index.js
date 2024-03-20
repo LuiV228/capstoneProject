@@ -1,5 +1,6 @@
 import { userRouter, express } from "./controller/UsersController.js";
 import { agentsRouter } from "./controller/AgentsController.js";
+import { emissariesRouter } from "./controller/EmissariesController.js";
 import cookieParser from "cookie-parser";
 import { errorHandling } from "./middleware/ErrorHandling.js";
 import path from "path";
@@ -29,6 +30,7 @@ app.get("^/$|/capstoneProject", (req, res) => {
 });
 app.use("/users", userRouter);
 app.use("/agents", agentsRouter);
+app.use("/emissaries", emissariesRouter);
 app.use(errorHandling);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

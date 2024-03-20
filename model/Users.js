@@ -82,24 +82,48 @@ class Users {
       });
     });
   }
+  // async updateUser(req, res) {
+  //   const data = req.body;
+  //   if (data?.userPassword) {
+  //     data.userPassword = await hash(data?.userPassword, 10);
+  //   }
+  //   const qry = `
+  //   update Users
+  //   set ?
+  //   where userID = ${req.params.id}
+  //   `;
+  //   db.query(qry, [data], (err) => {
+  //     if (err) throw err;
+  //     res.json({
+  //       status: res.statusCode,
+  //       msg: "The user's details have been updated",
+  //     });
+  //   });
+  // }
   async updateUser(req, res) {
     const data = req.body;
     if (data?.userPassword) {
-      data.userPassword = await hash(data?.userPassword, 10);
+        data.userPassword = await hash(data?.userPassword, 10);
     }
+
     const qry = `
-    update Users
-    set ?
-    where userID = ${req.params.id}
+        UPDATE Users
+        SET ?
+        WHERE userID = ?
     `;
-    db.query(qry, [data], (err) => {
-      if (err) throw err;
-      res.json({
-        status: res.statusCode,
-        msg: "The user's details have been updated",
-      });
+    db.query(qry, [data, req.params.id], (err, result) => {
+        if (err) {
+            console.error('Error updating user:', err);
+            return res.status(500).json({ error: 'An error occurred while updating user' });
+        }
+        console.log('User updated successfully:', result);
+        res.json({
+            status: res.statusCode,
+            msg: "The user's details have been updated",
+        });
     });
   }
+
 
   login(req, res) {
     const { userEmail, userPassword } = req.body;
@@ -118,7 +142,7 @@ class Users {
       if (err) throw err;
       if (!result?.length) {
         res.json({
-          status: statusCode,
+          status: res.statusCode,
           msg: "Wrong email address or password provided",
         });
       } else {
