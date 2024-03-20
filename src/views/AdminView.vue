@@ -23,10 +23,16 @@
         <td class="col-4">{{ user.userEmail }}</td>
         <td class="col-5">{{ user.userContact }}</td>
         <td class="col-6">
-          <button type="submit" class="btn btn-secondary" @click="deleteUser(user.userID)">Remove User</button>
+          <button
+            type="submit"
+            class="btn btn-secondary"
+            @click="deleteUser(user.userID)"
+          >
+            Remove User
+          </button>
         </td>
         <td class="col-7">
-          <UpdateUser :user="userID" />
+          <UpdateUser :user="user" />
         </td>
       </tr>
     </tbody>
@@ -58,7 +64,7 @@
           <button @click="deleteAgent(agent.agentID)">Remove Agent</button>
         </td>
         <td class="col-7">
-          <button @click="updateAgent(agent.agentID)">Edit Agent</button>
+          <UpdateAgent :agent="agent"/>
         </td>
       </tr>
     </tbody>
@@ -69,12 +75,14 @@
 import AddUser from "../components/AddUser.vue";
 import AddAgent from "@/components/AddAgent.vue";
 import UpdateUser from "@/components/UpdateUser.vue";
+import UpdateAgent from "@/components/UpdateAgent.vue";
 
 export default {
   components: {
     AddUser,
     AddAgent,
-    UpdateUser
+    UpdateUser,
+    UpdateAgent
   },
   data() {
     return {
@@ -90,7 +98,6 @@ export default {
       userRole: "",
       userEmail: "",
       userPassword: "",
-      selectedUserID: null // Initialize selectedUserID with a default value or fetch it from your state
     };
   },
   computed: {
@@ -98,7 +105,7 @@ export default {
       return this.$store.dispatch("getAdminAgents");
     },
     getAdminUsers() {
-      return this.$store.dispatch("getAdminUsers");
+      return this.$store.state.adminUsers
     },
   },
   methods: {
@@ -144,7 +151,7 @@ export default {
     },
   },
   mounted() {
-    this.getAdminUsers;
+    this.$store.dispatch("getAdminUsers");
     this.getAdminAgents;
   },
 };

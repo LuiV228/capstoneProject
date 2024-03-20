@@ -15,9 +15,6 @@
             <div class="card-body">
               <h5 class="card-title">Codename: {{ agent.agentCodeName }}</h5>
               <h5 class="card-title">Role: {{ agent.agentRole }}</h5>
-              <p class="card-text">
-                Role Description: {{ agent.agentRoleDescription }}
-              </p>
               <div class="frame">
                 <router-link
                   @click="getAgent(agent.agentID)"
@@ -45,8 +42,8 @@ export default {
     },
   },
   computed: {
-    getAgents() {
-      return this.$store.dispatch("getAgents");
+    agents() {
+      return this.$store.state.agents;
     },
     filteredAgents() {
       // Filter out the agents array to exclude a specific agent
@@ -58,7 +55,7 @@ export default {
     },
   },
   mounted() {
-    this.getAgents;
+    this.$store.dispatch("getAgents");
   },
 };
 </script>
