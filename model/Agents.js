@@ -27,13 +27,13 @@ class Agents {
         agentRoleDescription,
         agentPrice
         from Agents
-        where agentID = ${req.params.id};
+        where agentID = '${req.params.id}';
         `;
     db.query(qry, (err, result) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
-        result,
+        result: result[0],
       });
     });
   }
@@ -67,9 +67,9 @@ class Agents {
     const qry = `
         update Agents
         set ?
-        where agentID = ${req.params.id}
+        where agentID = ?
         `;
-    db.query(qry, [req.body], (err) => {
+    db.query(qry, [req.body, req.params.id], (err) => {
       if (err) throw err;
       res.json({
         status: res.statusCode,
