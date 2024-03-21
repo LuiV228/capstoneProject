@@ -1,15 +1,26 @@
 <template>
-  <div class="services">
-    <h1 class="display-2">This is the services page</h1>
+  <div>
+    <!-- <Spinner /> -->
+  </div>
+  <div class="home" v-if="!showSpinner"></div>
+  <div>
+    <h1 class="display-2">This is the Home page</h1>
   </div>
 </template>
-
 <script>
-  export default {
-      
-  }
+// import Spinner from "@/components/Spinner.vue";
+
+export default {
+  name: "SpinnerComp",
+  components: {
+    // Spinner,
+  },
+  data() {
+    return {
+      showSpinner: true,
+    };
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
