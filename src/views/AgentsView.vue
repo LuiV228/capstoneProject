@@ -7,7 +7,7 @@
   </header>
   <div class="agents">
     <h1>
-      <span class="display-2 multicolortext">This is the agents page</span>
+      <span class="display-2 multicolortext">Meet our agents</span>
     </h1>
     <div class="row row-cols-1 row-cols-md-5 g-4">
       <div v-for="agent in filteredAgents" :key="agent">
