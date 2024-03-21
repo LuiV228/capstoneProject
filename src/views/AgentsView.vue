@@ -13,7 +13,7 @@
       <div v-for="agent in filteredAgents" :key="agent">
         <div class="col">
           <div class="content px-2">
-            <div class="card mx-1 my-3 p-1">
+            <div class="card mx-1 my-3 p-2">
               <img :src="agent.agentPortfolio" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">Codename: {{ agent.agentCodeName }}</h5>

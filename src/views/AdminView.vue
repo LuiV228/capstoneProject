@@ -137,9 +137,9 @@ export default {
     deleteUser(userID) {
       this.$store.dispatch("deleteUser", userID);
     },
-    updateUser(id) {
+    updateUser(userID) {
       let update = {
-        userID: id,
+        userID: this.userID,
         userFirstName: this.userFirstName,
         userLastName: this.userLastName,
         userEmail: this.userEmail,
@@ -147,7 +147,7 @@ export default {
         userContact: this.userContact,
         userRole: this.userRole,
       };
-      this.$store.dispatch("updateUser", update);
+      this.$store.dispatch("updateUser", update, userID);
     },
   },
   mounted() {
