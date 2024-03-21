@@ -67,6 +67,7 @@ export default createStore({
         await fetch(`${BASE_URL}agents/${payload.agentID}`)
       ).json();
       console.log(result);
+
       context.commit("setAgent", result);
     },
     // async getAgent({ commit }, agentID) {
@@ -207,7 +208,7 @@ export default createStore({
     //   await axios.patch(BASE_URL + "users/updateUser/" + update.userID, update);
     //   commit("setUpdateUser");
     //   alert("User's details have been updated successfully");
-      // window.location.reload();
+    // window.location.reload();
     // },
     async updateUser({ commit }, update) {
       try {
@@ -244,7 +245,7 @@ export default createStore({
         const data = await response.json();
         context.commit("setEmissaries", data.results);
       } catch (error) {
-        console.error('Error fetching emissaries:', error);
+        console.error("Error fetching emissaries:", error);
         context.commit("setEmissaries"); // Clear emissaries on error
         // Optionally, you can show a message to the user indicating the error
       }
@@ -254,8 +255,8 @@ export default createStore({
         commit("addEmissaryToCart", newEmissary);
         console.log("Emissary added to cart:", newEmissary);
       } catch (error) {
-        console.error('Error adding emissary to cart:', error);
+        console.error("Error adding emissary to cart:", error);
       }
     },
-  }
+  },
 });

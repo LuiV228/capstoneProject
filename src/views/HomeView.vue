@@ -27,6 +27,9 @@
               that the agency's objectives are achieved with maximum
               effectiveness and secrecy.
             </p>
+            <router-link to="/agent/100">
+              <button class="btn">View Director's Details</button>
+            </router-link>
             <router-link to="/agents">
               <button class="btn">View Our Agents</button>
             </router-link>
