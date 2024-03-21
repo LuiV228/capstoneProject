@@ -94,7 +94,7 @@ export default {
     }
   },
   methods: {
-    updateAgent() {
+    updateAgent(agentID) {
       let update = {
         agentID: this.formData.agentID,
         agentPortfolio: this.formData.agentPortfolio,
@@ -104,7 +104,7 @@ export default {
         agentPrice: this.formData.agentPrice
       };
       if (this.validateForm()) {
-        this.$store.dispatch("updateAgent", update);
+        this.$store.dispatch("updateAgent", update, agentID);
       } else {
         alert("Please fill in all the fields.");
       }
