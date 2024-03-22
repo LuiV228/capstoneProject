@@ -45,13 +45,26 @@
             <router-link to="/admin" class="nav-link">Admin</router-link>
           </div>
           <div class="nav-item px-3">
-            <router-link to="/logout" class="nav-link">Log Out</router-link>
+            <router-link to="/logout" @click="Logout" class="nav-link"
+              >Log Out</router-link
+            >
           </div>
         </div>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    Logout() {
+      document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      location.href = "http://localhost:8080";
+    },
+  },
+};
+</script>
 
 <style scoped>
 #logo {

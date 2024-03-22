@@ -1,8 +1,6 @@
 <template>
   <div class="access-spinner">
-    <pre class="access-spinner__text">
-        <!-- Text related to the spinner -->
-      </pre>
+    <pre class="access-spinner__text"></pre>
   </div>
 </template>
 
@@ -28,7 +26,7 @@ export default {
     }, 20);
     setTimeout(() => {
       this.$router.push({ name: "home" }); // Navigate to home page
-    }, 22000);
+    }, 29000);
   },
 };
 
