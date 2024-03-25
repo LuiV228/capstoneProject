@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 import axios from "axios";
 import router from "@/router";
 import { applyToken } from "@/service/AuthenticationUser.js";
-const BASE_URL = "https://capstoneproject-p08x.onrender.com";
+const BASE_URL = "https://capstoneproject-p08x.onrender.com/";
 axios.defaults.withCredentials = true;
 
 export default createStore({
